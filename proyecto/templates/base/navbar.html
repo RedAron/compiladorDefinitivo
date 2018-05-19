@@ -4,7 +4,7 @@
 			<div class="nav-wrapper">
 				<ul class="right hide-on-med-and-down">
 					{% if request.user.is_authenticated %}
-						<li><a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a></li>
+						<li><a href="{% url 'logout' %}">Cerrar Sesión</a></li>
 					{% else %}
 						<li><a href="{% url 'usuario:registro' %}">Registro</a></li>
 						<li><a href="{% url 'login' %}">Ingresar</a></li>

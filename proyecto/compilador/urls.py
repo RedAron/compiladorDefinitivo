@@ -19,7 +19,8 @@ from django.contrib.auth.views import login, logout_then_login
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^usuario/', include('apps.usuario.urls', namespace="usuario")),
+
+    url(r'^', include('apps.usuario.urls', namespace="usuario")),
 
     url(r'^login/', login, {'template_name' : 'usuario/index.html'}, name="login"),
     url(r'^accounts/login/', login, {'template_name' : 'usuario/index.html'}),

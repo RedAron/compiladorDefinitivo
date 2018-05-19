@@ -3,6 +3,14 @@
 {% block title %} Registro {% endblock %}
 
 {% block content %}
-	<h1>Hola</h1>
+	<div class="container center">
+		<h1>Bienvenido</h1>
+		{% if request.user.is_authenticated %}
+			<h5>Hola, {{ request.user }}</h5>
+		{% else %}
+			<h5>Aun no inicias sesion</h5>
+		{% endif %}
+		
+	</div>
 	
 {% endblock %}
