@@ -1,0 +1,32 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>{% block title %} {% endblock %} -Compilador</title>
+
+	<link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+
+	{% block extrahead %}
+    {% endblock %}
+    
+</head>
+<body>
+
+	{% block header %}
+		{% include 'base/navbar.html' %}
+	{% endblock %}
+
+	{% block content %}
+		<h4>Soy el content</h4>
+	{% endblock %}
+
+	<script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+
+	{% block extrajs %}
+	{% endblock %}
+
+</body>
+</html>

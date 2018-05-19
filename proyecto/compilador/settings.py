@@ -56,7 +56,7 @@ ROOT_URLCONF = 'compilador.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -127,3 +127,7 @@ STATIC_URL = '/static/'
 
 
 AUTH_USER_MODEL = 'usuario.Usuario'
+
+from django.core.urlresolvers import reverse_lazy
+LOGIN_REDIRECT_URL = reverse_lazy('usuario:welcome')
+LOGOUT_REDIRECT_URL = reverse_lazy('login')

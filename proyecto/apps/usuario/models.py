@@ -8,4 +8,4 @@ class Usuario(AbstractUser):
 	pais = models.CharField(max_length=50)
 	lenguaje = models.CharField(max_length=50)
 
-	
+
