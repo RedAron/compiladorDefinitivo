@@ -7,5 +7,6 @@ class Usuario(AbstractUser):
 	ciudad = models.CharField(max_length=50)
 	pais = models.CharField(max_length=50)
 	lenguaje = models.CharField(max_length=50)
-
+	
+	
 
