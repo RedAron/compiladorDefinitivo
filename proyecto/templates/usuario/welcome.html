@@ -1,5 +1,5 @@
 {% extends 'base/base.html' %}
-
+{% load staticfiles %}
 
 {% block title %} Registro   {% endblock %}
 
@@ -7,31 +7,13 @@
 
 	<div class="container center">
 		<h1>Bienvenido</h1>
-		<h5>Hola, {{ request.user }}</h5>
 		{% if request.user.is_authenticated %}
-		
+			<h5>Hola, {{ request.user }}</h5>
+			<a href="{% url 'interprete:compilador' %}" class="btn waves-effect waves-light pink">ir al compilador</a>
 			<!--editor de texto-->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-		
-		
-		
-			{% else %}
+		{% else %}
 			<h5>Aun no inicias sesion</h5>
+			
 		{% endif %}
 		
 	</div>

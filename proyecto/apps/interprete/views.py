@@ -1,7 +1,9 @@
-from django.shortcuts import render,get_list_or_404
+from django.shortcuts import render
+from django.http import HttpResponseRedirect, HttpResponse
 
-from apps.usuario.models import Usuario
+from apps.interprete.models import *
 # Create your views here.
 
-def Usuario_datalles(request,pk):
-    a=52
+def compilador(request):
+    return render(request, 'usuario/compilador.html')
+ 

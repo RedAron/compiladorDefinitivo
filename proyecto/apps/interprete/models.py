@@ -14,3 +14,4 @@ class Programa(models.Model):
     tiempo=models.DateField(("Date"),default=datetime.date.today)
     usuario=models.ForeignKey(Usuario,on_delete=models.CASCADE)
     
+

@@ -6,6 +6,5 @@ from . import views
 urlpatterns = [
 	url(r'^$', welcome, name="welcome"),
     url(r'^registro', RegistroUsuario.as_view(), name="registro"),
-    
 
 ]
