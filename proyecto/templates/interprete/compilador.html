@@ -1,0 +1,120 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr">
+
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+	<title>Compilador</title>
+	{% load staticfiles %}
+	<script language="Javascript" type="text/javascript" src="{% static 'js/edit_area/edit_area_full.js'%}"></script>
+	<script language="Javascript" type="text/javascript">
+
+
+		editAreaLoader.init({
+			id: "example_3"	// id of the textarea to transform	
+			, start_highlight: true
+			, font_size: "8"
+			, font_family: "verdana, monospace"
+			, allow_resize: "y"
+			, allow_toggle: false
+			, language: "fr"
+			, syntax: "css"
+			, toolbar: "new_document, save, load, |, charmap, |, search, go_to_line, |, undo, redo, |, select_font, |, change_smooth_selection, highlight, reset_highlight, |, help"
+			, load_callback: "my_load"
+			, save_callback: "my_save"
+			, plugins: "charmap"
+			, charmap_default: "arrows"
+
+		});
+
+		function my_save(id, content) {
+			alert("Here is the content of the EditArea '" + id + "' as received by the save callback function:\n" + content);
+		}
+
+		function my_load(id) {
+			editAreaLoader.setValue(id, "The content is loaded from the load_callback function into EditArea");
+		}
+
+		function test_setSelectionRange(id) {
+			editAreaLoader.setSelectionRange(id, 100, 150);
+		}
+
+		function test_getSelectionRange(id) {
+			var sel = editAreaLoader.getSelectionRange(id);
+			alert("start: " + sel["start"] + "\nend: " + sel["end"]);
+		}
+
+		function test_setSelectedText(id) {
+			text = "[REPLACED SELECTION]";
+			editAreaLoader.setSelectedText(id, text);
+		}
+
+		function test_getSelectedText(id) {
+			alert(editAreaLoader.getSelectedText(id));
+		}
+
+		function editAreaLoaded(id) {
+			if (id == "example_2") {
+				open_file1();
+				open_file2();
+			}
+		}
+
+		function open_file1() {
+			var new_file = { id: "to\\ é # € to", text: "$authors= array();\n$news= array();", syntax: 'php', title: 'beautiful title' };
+			editAreaLoader.openFile('example_2', new_file);
+		}
+
+		function open_file2() {
+			var new_file = { id: "Filename", text: "<a href=\"toto\">\n\tbouh\n</a>\n<!-- it's a comment -->", syntax: 'html' };
+			editAreaLoader.openFile('example_2', new_file);
+		}
+
+		function close_file1() {
+			editAreaLoader.closeFile('example_2', "to\\ é # € to");
+		}
+
+		function toogle_editable(id) {
+			editAreaLoader.execCommand(id, 'set_editable', !editAreaLoader.execCommand(id, 'is_editable'));
+		}
+
+	</script>
+</head>
+
+<body>
+	{% block header %} {% include 'base/navbar.html' %} {% endblock %} {% block content %} {% endblock %}
+
+
+
+	</legend>Compilador</legend>
+	<p>bienvenido {{ request.user }}</p>
+
+
+	{% if request.user.is_authenticated %}
+	<form action='' method='post'>
+
+		<fieldset>
+
+		<textarea id="example_3" style="height: 350px; width: 100%;" name="test_3">
+				
+			
+			</textarea>
+		</fieldset>
+
+		<button class="btn waves-effect waves-light" type="submit" name="action"> Conpilar
+			<i class="material-icons right">send</i>
+		</button>
+
+
+	</form>
+
+	{% else %}
+	<h1> debes iniciar sesion</h1>
+
+	{% endif %}
+
+
+</body>
+
+</html>

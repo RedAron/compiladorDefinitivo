@@ -5,5 +5,5 @@ from apps.interprete.models import *
 # Create your views here.
 
 def compilador(request):
-    return render(request, 'usuario/compilador.html')
+    return render(request, 'interprete/compilador.html')
  
