@@ -1,14 +1,36 @@
 {% extends 'base/base.html' %}
 
-{% block title %} Registro {% endblock %}
+
+{% block title %} Registro   {% endblock %}
 
 {% block content %}
+
 	<div class="container center">
 		<h1>Bienvenido</h1>
+		<h5>Hola, {{ request.user }}</h5>
 		{% if request.user.is_authenticated %}
-			<h5>Hola, {{ request.user }}</h5>
-			<a class="waves-effect waves-light btn-large">Has click para continuar</a>
-		{% else %}
+		
+			<!--editor de texto-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+		
+		
+			{% else %}
 			<h5>Aun no inicias sesion</h5>
 		{% endif %}
 		

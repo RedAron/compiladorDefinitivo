@@ -21,6 +21,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 
     url(r'^', include('apps.usuario.urls', namespace="usuario")),
+    url(r'^', include('apps.interprete.urls', namespace="interprete")),
 
     url(r'^login/', login, {'template_name' : 'usuario/index.html'}, name="login"),
     url(r'^accounts/login/', login, {'template_name' : 'usuario/index.html'}),
