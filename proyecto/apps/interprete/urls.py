@@ -3,6 +3,6 @@ from django.conf.urls import url
 from apps.interprete.views import *
 
 urlpatterns = [
-	url(r'^compilador/$', compilador, name="compilador"),
+	url(r'^compilador/$', guardar.as_view(), name="compilador"),
    
 ]

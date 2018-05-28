@@ -6,9 +6,15 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
 	<title>Compilador</title>
+	 <!-- Compiled and minified CSS -->
+	 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+
+	 <!-- Compiled and minified JavaScript -->
+	 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 	{% load staticfiles %}
 	<script language="Javascript" type="text/javascript" src="{% static 'js/edit_area/edit_area_full.js'%}"></script>
 	<script language="Javascript" type="text/javascript">
+	
 
 
 		editAreaLoader.init({
@@ -86,31 +92,52 @@
 	{% block header %} {% include 'base/navbar.html' %} {% endblock %} {% block content %} {% endblock %}
 
 
+	<div class="row">
+		<div class="col-3">
+			</legend>Compilador</legend>
+			<p>bienvenido {{ request.user }}</p>
 
-	</legend>Compilador</legend>
-	<p>bienvenido {{ request.user }}</p>
+
+			{% if request.user.is_authenticated %}
+			<form action="" method='post'>
 
 
-	{% if request.user.is_authenticated %}
-	<form action="" method='post'>
-		{%csrf_token%}
-		{{ form.as_p }}
-			 
-		
-		<textarea id="example_3" style="height: 350px; width: 100%;" name="test_3" ></textarea>
-			<button class="btn waves-effect waves-light" type="submit" name="action"> Guardar
-				<i class="material-icons right">arrow_downward</i>
+
+				<textarea id="example_3" style="height: 350px; width: 100%;" name="test_3"></textarea>
+
+
+
+
+
+				<button class="btn waves-effect waves-light" type="submit"> Conpilar
+					<i class="material-icons right">send</i>
 				</button>
 
 
 
-		<button class="btn waves-effect waves-light" type="submit" > Conpilar
-			<i class="material-icons right">send</i>
-		</button>
-		
-	
+			</form>
+		</div>
 
-	</form>
+		<div class="col-6">
+			<h2>Guardar el codigo</h2>
+			<form action="" method="post">
+
+
+				{%csrf_token%} {{ form.as_p }}
+
+				<button class="btn waves-effect waves-light" type="submit"> Guardar
+						<i class="material-icons right">send</i>
+					</button>
+
+
+
+			</form>
+
+
+		</div>
+	</div>
+
+
 
 
 

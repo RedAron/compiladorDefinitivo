@@ -8,6 +8,8 @@ from django.contrib.auth.models import User
 from .forms import programaForm
 from django.template import loader
 from django.core.urlresolvers import reverse_lazy
+from django.views.generic import CreateView
+
 
 
 # Create your views here.
@@ -15,8 +17,8 @@ from django.core.urlresolvers import reverse_lazy
 def compilador(request):
     return render(request, 'interprete/compilador.html')
 
-def guardar(request):
+class guardar(CreateView):
     model = Programa
     template_name = 'interprete/compilador.html'
     form_class = programaForm
-    success_url = reverse_lazy('compilador')
+    success_url = reverse_lazy('interprete:compilador')

@@ -8,9 +8,7 @@
 					{% else %}
 						<li><a href="{% url 'usuario:registro' %}">Registro</a></li>
 						<li><a href="{% url 'login' %}">Ingresar</a></li>
-						{%for pe in Usuario%}
-						<p>{{pe.username}}</p>
-                       {%endfor%}
+						
 					{% endif %}
 				<li></li>
 				</ul>
