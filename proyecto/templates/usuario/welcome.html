@@ -1,21 +1,27 @@
-{% extends 'base/base.html' %}
-{% load staticfiles %}
+{% extends 'base/base.html' %} {% load staticfiles %} {% block title %} Registro {% endblock %} {% block content %}
 
-{% block title %} Registro   {% endblock %}
+<div class="container center">
+	<h1>Bienvenido</h1>
+	{% if request.user.is_authenticated %}
+	<h5>Hola, {{ request.user }}</h5>
+	<a href="{% url 'interprete:compilador' %}" class="btn waves-effect waves-light pink">ir al compilador</a>
 
-{% block content %}
-
-	<div class="container center">
-		<h1>Bienvenido</h1>
-		{% if request.user.is_authenticated %}
-			<h5>Hola, {{ request.user }}</h5>
-			<a href="{% url 'interprete:compilador' %}" class="btn waves-effect waves-light pink">ir al compilador</a>
-			
-		{% else %}
-			<h5>Aun no inicias sesion</h5>
-			
-		{% endif %}
-		
-	</div>
+	<a href="{% url "usuario:editar" pk=request.user.id   %}" class="btn waves-effect waves-light pink">Editar</a> 
 	
+	<a href="{% url "usuario:eliminar" pk=request.user.id %}" class="btn waves-effect waves-light pink">Borrar</a> 
+
+	{% else %}
+	<h5>Aun no inicias sesion</h5>
+
+	
+
+		</script>
+
+	{% endif %}
+
+	<a href="{% url "usuario:diagrama"  %}" class="btn waves-effect waves-light pink">diagrama</a> 
+
+
+</div>
+
 {% endblock %}
