@@ -22,9 +22,36 @@ def welcome(request):
 
 def diagramas(request):
     queryset=Usuario.objects.all()
-    name= [obj.ciudad for obj in queryset]
+    id= [obj.id for obj in queryset]
+    pais= [obj.pais for obj in queryset]
+    lenguaje= [obj.lenguaje for obj in queryset]
+    aux=1
+    for usuario1 in queryset:
+        for usuario in queryset:
+            if(usuario.pais==usuario1.pais):
+                aux=aux+1
+    aux2=1
+    for usuario1 in queryset:
+        for usuario in queryset:
+            if(usuario1.lenguaje==usuario.lenguaje):
+                aux2=aux2+1
+    
+    
+
+        
+    
+    
+
+    
+    [obj.id for obj in queryset]
+
     context={
-        'names':json.dumps(name),
+        'numpais':json.dumps(aux),
+        'lenguaje':json.dumps(lenguaje),
+        'numlenguaje':json.dumps(aux2),
+
+        'pais': json.dumps(pais),
+        'id':json.dumps(id)
     }
     return render(request,'usuario/estadisticas.html',context)
 
