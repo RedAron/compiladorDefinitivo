@@ -22,9 +22,9 @@ def welcome(request):
 
 def diagramas(request):
     queryset=Usuario.objects.all()
-    name=[obj.username for obj in queryset]
+    name= [obj.ciudad for obj in queryset]
     context={
-        'name':json.dumps(name)
+        'names':json.dumps(name),
     }
     return render(request,'usuario/estadisticas.html',context)
 
